@@ -1,24 +1,18 @@
 
 import { useState } from 'react';
 
-function TaskCard({item, index, handleDelete}) {
-    // console.log(item)
-    const [value, setValue] = useState(item.text);
+function TaskCard() {
 
-    const handleCheckboxChange = (e) => {
-        console.log('value of checkbox : ', e.target.checked);
-        handleDelete(index)
-    }
+    // const handleCheckboxChange = (e) => {
 
-    const handleChangeText = (e) => {
-        console.log('new task:', e.target.value)
-        setValue(e.target.value);
-      }
+    // }
+
+    // const handleChangeText = (e) => {
+    // }
 
     return (
         <div className='taskCard' >
-            <input className='checkbox' type='checkbox' index={item.index} onChange={handleCheckboxChange} />
-            <input className='inputTaskCard' value={value} type='text'  onChange={handleChangeText} />
+
         </div>
     );
 }
