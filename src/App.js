@@ -2,26 +2,31 @@
 import './App.css';
 import { useState } from 'react';
 
+import TaskCard from './components/taskCard';
+
 function App() {
   const [text, setText] = useState('');
   const [taskList, setTaskList] = useState([{
-    index: 0,
     text: 'Learn React JS'
   }])
   const handleChangeText = (e) => {
-    console.log('new task:', e.target.value)
+    // console.log('new task:', e.target.value)
     setText(e.target.value);
   }
 
   const handleSubmit = () => {
     if (text != '') {
-      setTaskList([...taskList, text]);
+      setTaskList([...taskList, {
+        text: text
+      }]);
       setText('')
     }
   }
 
-  const handleCheckboxChange = (e) => {
-    console.log('value of checkbox : ', e.target.checked);
+  const handleDelete = (index) => {
+    let tmp = [...taskList]
+    tmp.splice(index, 1);
+    setTaskList(tmp)
   }
 
   return (
@@ -35,12 +40,7 @@ function App() {
       <div className='taskList'>
         {taskList.map((item, key) => {
           return (
-            <div className='taskCard' key={key} >
-              <input className='checkbox' type='checkbox' index={item.index} onChange={handleCheckboxChange} />
-              <h2>
-                {item.text}
-              </h2>
-            </div>
+            <TaskCard item={item} key={key} index={key} handleDelete={handleDelete} />
           )
         })}
 

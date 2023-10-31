@@ -96,3 +96,18 @@
   margin-left: 16px;
   margin-right: 16px;
 }
+
+.inputTaskCard{
+  border: 0px;
+  background-color: transparent;
+  padding: 16px;
+  padding-left: 0px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.inputTaskCard:focus-visible{
+  border: 0px;
+  border-color: transparent;
+  outline: transparent;
+}
